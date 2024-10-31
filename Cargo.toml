@@ -1,0 +1,27 @@
+[package]
+name = "zip-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "zip-test"
+path = "./src/zip_test.rs"
+
+[features]
+default = ["zip"]
+zip = ["dep:zip", "walkdir"]
+
+[dependencies]
+# Better error handling
+anyhow = "1.0.68"
+# Logging
+env_logger = { version = "*", optional = false }
+log = "0.4.17"
+# For command line functionality of the nodes
+clap = { version = "4.1.18", features = ["derive"] }
+# For recursively listing directories
+walkdir = { version = "*", optional = true }
+# For zip archives
+zip = { version = "2.2.0", features = ["deflate-zlib", "deflate-zlib-ng"], optional = true }
