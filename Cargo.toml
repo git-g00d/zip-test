@@ -7,7 +7,7 @@ edition = "2021"
 
 [[bin]]
 name = "zip-test"
-path = "./src/zip_test.rs"
+path = "./src/main.rs"
 
 [features]
 default = ["zip"]
@@ -25,3 +25,5 @@ clap = { version = "4.1.18", features = ["derive"] }
 walkdir = { version = "*", optional = true }
 # For zip archives
 zip = { version = "2.2.0", features = ["deflate-zlib", "deflate-zlib-ng"], optional = true }
+# Force the libz-ng-sys version
+libz-ng-sys = { version = "1.1.20" }
